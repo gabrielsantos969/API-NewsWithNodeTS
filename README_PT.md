@@ -2,7 +2,12 @@
 ![Badge concluido](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge)
 ![Badge em Versão](http://img.shields.io/static/v1?label=Versão&message=1.0.0&color=GREEN&style=for-the-badge)
 
-> Está é uma API criada no intuito de aprendizagem a qual simula um CRUD de noticias.
+> ### Está é uma API criada no intuito de aprendizagem a qual simula um CRUD de noticias.
+
+>[!WARNING]
+> O link abaixo leva para o mesmo README só que na lingua inglesa.
+>
+>[README in English](README)
 
 ## Ferramentas 🛠️
 
@@ -234,3 +239,15 @@ npm run start
     "status": 200
 }
 ```
+
+# Autor
+|Nome|Email|Função|Curso|
+| -------- | --------  |-------- | -------- |
+|Gabriel Santos|gabrielsantos98898@gmail.com|Back-end|Ciências da Computação|
+
+
+[<img src="https://github.com/gabrielsantos969.png" width=115 > <br> <sub> Gabriel Santos </sub>](https://github.com/gabrielsantos969) |
+| :---: |  
+
+[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/gabrielsantos969)](https://github.com/gabrielsantos969)
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gabriel-santos-b53632196/)](https://www.linkedin.com/in/gabriel-santos-b53632196/)

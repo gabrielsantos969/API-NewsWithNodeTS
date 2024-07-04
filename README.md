@@ -1,8 +1,13 @@
 # API News
-![Badge em Produção](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge)
-![Badge em Versão](http://img.shields.io/static/v1?label=Versão&message=1.0.0&color=GREEN&style=for-the-badge)
+![Badge in Production](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge)
+![Badge in Version](http://img.shields.io/static/v1?label=Versão&message=1.0.0&color=GREEN&style=for-the-badge)
 
-> This is an API created for learning purposes which simulates a news CRUD.
+> ### This is an API created for learning purposes which simulates a news CRUD.
+
+>[!WARNING]
+> The link below takes you to the same README but in Portuguese.
+>
+>[README in Portuguese](README_PT)
 
 ## Tools 🛠️
 
@@ -234,3 +239,15 @@ npm run start
     "status": 200
 }
 ```
+
+# Author
+|Nome|Email|Function|Course|
+| -------- | --------  |-------- | -------- |
+|Gabriel Santos|gabrielsantos98898@gmail.com|Back-end|Computer Science|
+
+
+[<img src="https://github.com/gabrielsantos969.png" width=115 > <br> <sub> Gabriel Santos </sub>](https://github.com/gabrielsantos969) |
+| :---: |  
+
+[![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/gabrielsantos969)](https://github.com/gabrielsantos969)
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gabriel-santos-b53632196/)](https://www.linkedin.com/in/gabriel-santos-b53632196/)
