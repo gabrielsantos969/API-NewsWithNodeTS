@@ -82,8 +82,8 @@ const newsGetByTitle = async (title: string): Promise<News[] | null> => {
 
 const newsCreate = async (data: News, categoryIds: number[]): Promise<void> => {
 
-    const [categories]: any = await con.promise().query("SELECT * FROM category WHERE id IN (?)", categoryIds);
-    const existCageryIds = categories.map((category: any) => category.id);
+    const [categories]: any = await con.promise().query("SELECT * FROM category WHERE id IN (?)", [categoryIds]);
+    const existCageryIds = categories.map((category: any) => category.id);    
 
     if(existCageryIds.length !== categoryIds.length){
         throw new Error('One or more categories do not exist.');
