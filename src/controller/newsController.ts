@@ -6,7 +6,7 @@ async function getAllNews(req: Request, res: Response) {
 
     let message = '';
     const page = parseInt(req.query.page as string) || 1;
-    const limit = 2;
+    const limit = 50;
 
     try {
 
