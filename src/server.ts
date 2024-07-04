@@ -1,6 +1,4 @@
-import { Router, Request, Response } from "express";
 import app from "./app";
-import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 
