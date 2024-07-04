@@ -7,7 +7,7 @@
 >[!WARNING]
 > The link below takes you to the same README but in Portuguese.
 >
->[README in Portuguese](README_PT)
+>[README in Portuguese](README_PT.md)
 
 ## Tools 🛠️
 

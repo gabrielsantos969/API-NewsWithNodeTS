@@ -7,7 +7,7 @@
 >[!WARNING]
 > O link abaixo leva para o mesmo README só que na lingua inglesa.
 >
->[README in English](README)
+>[README in English](README.md)
 
 ## Ferramentas 🛠️
 
