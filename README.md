@@ -1,6 +1,6 @@
 # API News
-![Badge in Production](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge)
-![Badge in Version](http://img.shields.io/static/v1?label=Versão&message=1.0.0&color=GREEN&style=for-the-badge)
+![Badge in Production](http://img.shields.io/static/v1?label=STATUS&message=CONCLUDED&color=GREEN&style=for-the-badge)
+![Badge in Version](http://img.shields.io/static/v1?label=Version&message=1.0.0&color=GREEN&style=for-the-badge)
 
 > ### This is an API created for learning purposes which simulates a news CRUD.
 
