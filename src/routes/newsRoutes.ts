@@ -4,10 +4,10 @@ import { createNews, deleteNews, getAllNews, getByIdNews, getByTitleNews, update
 const router = Router();
 
 router.get('', getAllNews);
-router.get('/:id', getByIdNews);
-router.get('/:title', getByTitleNews);
+router.get('/getById/:id', getByIdNews);
+router.get('/getByTitle/:title', getByTitleNews);
 router.post('', createNews);
-router.put('/:id', updateNews);
-router.delete('/:id', deleteNews);
+router.put('/update/:id', updateNews);
+router.delete('/delete/:id', deleteNews);
 
 export default router;

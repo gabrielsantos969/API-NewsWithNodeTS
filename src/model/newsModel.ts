@@ -120,31 +120,31 @@ const newsUpdate = async (id: number, data:News): Promise<void> => {
 
     values.push(id);
 
-    await con.promise().query(`UPDATE news SET ${setClause.join(", ")} WHERE id=?`);
+    await con.promise().query(`UPDATE news SET ${setClause.join(", ")} WHERE id=?`, values);
 
 }
 
 const newsCategoryUpdate = async (id: number, categoryIds: number[]): Promise<void> => {
 
-    const [categories]: any = await con.promise().query("SELECT * FROM category WHERE id IN (?)", categoryIds);
+    const [categories]: any = await con.promise().query("SELECT * FROM category WHERE id IN (?)", [categoryIds]);
     const existCageryIds = categories.map((category: any) => category.id);
-
+    
     if(existCageryIds.length !== categoryIds.length){
         throw new Error('One or more categories do not exist.');
     }
 
     const [currentCategories]: any = await con.promise().query("SELECT * FROM category_news WHERE id_news = ?", [id]);
-    const currentCategoryIds: number[] = currentCategories.map((category: any) => category.id);
+    const currentCategoryIds: number[] = currentCategories.map((category: any) => category.id_category);
 
     const categoriesToAdd = existCageryIds.filter((idCategory: number) => !currentCategoryIds.includes(idCategory));
     const categoriesToRemove = currentCategoryIds.filter((idCategory: number) => !existCageryIds.includes(idCategory));
 
     if(categoriesToAdd.length > 0){
         const categoriesNewsValuesToAdd = categoriesToAdd.map((categoryId: number) => [id, categoryId]);
-        await con.promise().query("INSERT INTO category_news (id-news, id_category) VALUES ?", [categoriesNewsValuesToAdd]);
+        await con.promise().query("INSERT INTO category_news (id_news, id_category) VALUES ?", [categoriesNewsValuesToAdd]);
     }
-    if(categoriesToRemove.length > 0) {
-        await con.promise().query("DELETE FROM category_news WHERE id_news AND id_category IN (?)", [id, categoriesToRemove]);
+    if(categoriesToRemove.length > 0) {        
+        await con.promise().query("DELETE FROM category_news WHERE id_news = ? AND id_category IN (?)", [id, categoriesToRemove]);
     }
 
 }

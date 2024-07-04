@@ -137,7 +137,7 @@ async function getByTitleNews(req: Request, res: Response) {
             })
         }
         if(news){
-            message = `News Title: ${title} found.`;
+            message = `News Title: '${title}' found.`;
             sendResponse({
                 res,
                 success: true,
@@ -173,12 +173,14 @@ async function createNews(req: Request, res: Response) {
     let message = '';
     const {
         data,
-        category
+        categoryIds
     } = req.body;
 
     try {
-
-        if(data.title.length == 0 || data.title == null || data.title == undefined || data.title.trim().equals("")){
+        const validTitle = data.title.toString().trim();
+        const validPost = data.text.toString().trim();
+        
+        if(data.title.length == 0 || data.title == null || data.title == undefined || !validTitle){
             message = "The 'title' field is required.";
             sendResponse({
                 res,
@@ -186,7 +188,7 @@ async function createNews(req: Request, res: Response) {
                 statusCode: 422,
                 message: message
             })
-        }else if(data.text.length == 0 || data.title == null || data.title == undefined || data.title.trim().equals("")){
+        }else if(data.text.length == 0 || data.title == null || data.title == undefined || !validPost){
             message = "The 'post' field is required.";
             sendResponse({
                 res,
@@ -194,7 +196,7 @@ async function createNews(req: Request, res: Response) {
                 statusCode: 422,
                 message: message
             })
-        }else if(data.text.length < 100 ){
+        }else if(data.text.length < 100 ){            
             message = "The 'post' field needs at least 100 characters.";
             sendResponse({
                 res,
@@ -202,7 +204,7 @@ async function createNews(req: Request, res: Response) {
                 statusCode: 422,
                 message: message
             })
-        }else if(category.length == 0){
+        }else if(categoryIds.length == 0){
             message = "The 'category' field is required.";
             sendResponse({
                 res,
@@ -212,7 +214,7 @@ async function createNews(req: Request, res: Response) {
             })
         }else{
 
-            await newsCreate(data, category);
+            await newsCreate(data, categoryIds);
 
             message = 'News published successfully.';
             sendResponse({
@@ -235,7 +237,7 @@ async function createNews(req: Request, res: Response) {
         }
 
         if(errorCode === "ER_DUP_ENTRY"){
-            message = 'Duplication error when registering the product.';
+            message = 'Duplication error when registering the news.';
             sendResponse({
                 res,
                 success: false,
@@ -244,7 +246,7 @@ async function createNews(req: Request, res: Response) {
                 error: errorMessage
             })
         }else{
-            message = 'Error when trying to update news.';
+            message = 'Error when trying to registred news.';
             sendResponse({
                 res,
                 success: false,
@@ -275,7 +277,7 @@ async function updateNews(req: Request, res: Response) {
         
         if(!news){
             message = 'News not found';
-            sendResponse({
+            return sendResponse({
                 res,
                 success: true,
                 statusCode: 404,
@@ -287,7 +289,16 @@ async function updateNews(req: Request, res: Response) {
             throw new Error('No data provided to update.');
         }
 
-        if (data && categoryIds) {
+        if(data.text.length < 100 ){            
+            message = "The 'post' field needs at least 100 characters.";
+            return sendResponse({
+                res,
+                success: true,
+                statusCode: 422,
+                message: message
+            })
+        }
+        if (data && categoryIds) {            
             await newsUpdate(Number(id), data);
             await newsCategoryUpdate(Number(id), categoryIds);
             message = 'News updated successfully.';
@@ -307,6 +318,7 @@ async function updateNews(req: Request, res: Response) {
         })
         
     } catch (err) {
+        console.error(err);
         
         let errorMessage = 'An unknown error occurred';
         let errorCode: string | undefined
@@ -318,7 +330,7 @@ async function updateNews(req: Request, res: Response) {
         }
 
         if(errorCode === "ER_DUP_ENTRY"){
-            message = 'Duplication error when registering the product.';
+            message = 'Duplication error when updated the news.';
             sendResponse({
                 res,
                 success: false,
