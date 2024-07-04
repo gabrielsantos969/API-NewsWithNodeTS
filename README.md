@@ -59,7 +59,7 @@ git clone https://github.com/gabrielsantos969/API-InventoryManagementSystemTS.gi
 
 ### Configuration ⚙️
 
-> Configure the port and host to run it in __.env__, if you don't add anything, it comes by default at __PORT=3000__ and __HOST=http://localhost__ in __src/server.ts__.
+> Configure the port and host to run it in __.env__, if you don't add anything, it comes by default at __PORT=3000__ and __HOST=http://localhost__ in __[Server](src/server.ts)__.
 
 ```.env
 PORT=
@@ -68,7 +68,7 @@ HOST=
 
 ---
 
-> Configure the __.env__ to connect to your database, some information if not added is placed by default in __src/config/connect.ts__.
+> Configure the __.env__ to connect to your database, some information if not added is placed by default in __[Configuração Banco de Dados](src/config/connect.ts)__.
 
 ```.env
 DB_HOST=
@@ -86,7 +86,7 @@ DB_PORT=
 >
 > Here is the installation link:  [MySQL Installer 8.0.37](https://dev.mysql.com/downloads/installer/ "https://dev.mysql.com/downloads/installer/")
 
-> After installing MySQL and configuring the workbench to be able to use the database, run the scripts that are at the root of the project to have all the tables that the API has, so that it works correctly.
+> After installing MySQL and configuring the workbench to be able to use the database, run the scripts that are at the root of the project (__[Scripts](/scripts/)__) to have all the tables that the API has, so that it works correctly.
 
 ## Putting it to run 🎉
 
@@ -99,7 +99,7 @@ npm run dev
 
 ### Compiling project 📥
 ```bash
-npm run compile
+npm run build
 ```
 
 ### __Running in compiled mode__ 🏃‍♂️💨
