@@ -31,7 +31,7 @@ const newsGetAll = async (page: number, limitQuery: number, filters?: any): Prom
 
     if(rows.length > 0){
         return rows.map(row => {
-            const news = new News(row.title, row.text, row.id);
+            const news = new News(row.title, row.description, row.text, row.id);
             news.date_pub = row.date_pub;
             return news;
         })
@@ -54,7 +54,7 @@ const newsGetById = async (id: number): Promise<News[] | null> => {
 
     if(rows.length > 0){
         return rows.map(row => {
-            const news = new News(row.title, row.text, row.id);
+            const news = new News(row.title, row.description, row.text, row.id);
             news.date_pub = row.date_pub;
             return news;
         })
@@ -70,7 +70,7 @@ const newsGetByTitle = async (title: string): Promise<News[] | null> => {
 
     if(rows.length > 0){
         return rows.map(row => {
-            const news = new News(row.title, row.text, row.id);
+            const news = new News(row.title, row.description, row.text, row.id);
             news.date_pub = row.date_pub;
             return news;
         })
@@ -89,8 +89,8 @@ const newsCreate = async (data: News, categoryIds: number[]): Promise<void> => {
         throw new Error('One or more categories do not exist.');
     }
 
-    const values = [data.title, data.text];
-    const [result]: any = await con.promise().query("INSERT INTO news (title, text) VALUES (?,?)", values);
+    const values = [data.title, data.description, data.text];
+    const [result]: any = await con.promise().query("INSERT INTO news (title, description, text) VALUES (?,?,?)", values);
 
     const newsId = result.insertId;
 
@@ -107,6 +107,11 @@ const newsUpdate = async (id: number, data:News): Promise<void> => {
     if(data.title){
         setClause.push("title=?");
         values.push(data.title);
+    }
+
+    if(data.description){
+        setClause.push("description=?");
+        values.push(data.description);
     }
 
     if(data.text){

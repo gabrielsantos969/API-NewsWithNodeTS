@@ -5,8 +5,8 @@ import sendResponse from "../utils/sendResponse";
 async function getAllNews(req: Request, res: Response) {
 
     let message = '';
-    const page = parseInt(req.query.page as string) | 1;
-    const limit = 50;
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = 2;
 
     try {
 
@@ -39,8 +39,8 @@ async function getAllNews(req: Request, res: Response) {
                 data: news,
                 page: page,
                 totalPages: totalPages,
-                nextPage: nextPage ? `/v1/getAllNews?page=${nextPage}` : null,
-                prevPage: prevPage ? `/v1/getAllNews?page=${prevPage}` : null
+                nextPage: nextPage ? `/v1/news?page=${nextPage}` : null,
+                prevPage: prevPage ? `/v1/news?page=${prevPage}` : null
             })
         }
         
@@ -179,6 +179,7 @@ async function createNews(req: Request, res: Response) {
     try {
         const validTitle = data.title.toString().trim();
         const validPost = data.text.toString().trim();
+        const validDescription = data.description.toString().trim();
         
         if(data.title.length == 0 || data.title == null || data.title == undefined || !validTitle){
             message = "The 'title' field is required.";
@@ -190,6 +191,14 @@ async function createNews(req: Request, res: Response) {
             })
         }else if(data.text.length == 0 || data.title == null || data.title == undefined || !validPost){
             message = "The 'post' field is required.";
+            sendResponse({
+                res,
+                success: true,
+                statusCode: 422,
+                message: message
+            })
+        }else if(data.description.length == 0 || data.description == null || data.description == undefined || !validDescription){
+            message = "The 'description' field is required.";
             sendResponse({
                 res,
                 success: true,
