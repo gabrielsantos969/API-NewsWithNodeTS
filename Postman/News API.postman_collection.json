@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "1bd33430-40fc-4228-9907-f046b1dc8f4c",
+		"name": "News API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18201202",
+		"_collection_link": "https://lively-spaceship-110632.postman.co/workspace/Team-Workspace~623f1324-0194-4274-89ce-8b7ff245447f/collection/18201202-1bd33430-40fc-4228-9907-f046b1dc8f4c?action=share&source=collection_link&creator=18201202"
+	},
+	"item": [
+		{
+			"name": "News",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost v1}}/v1/news?page=2",
+							"host": [
+								"{{localhost v1}}"
+							],
+							"path": [
+								"v1",
+								"news"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost v1}}/v1/news/getById/2",
+							"host": [
+								"{{localhost v1}}"
+							],
+							"path": [
+								"v1",
+								"news",
+								"getById",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByTitle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost v1}}/v1/news/getByTitle/tei",
+							"host": [
+								"{{localhost v1}}"
+							],
+							"path": [
+								"v1",
+								"news",
+								"getByTitle",
+								"tei"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"title\": \"Fronteiras 5\",\r\n        \"description\": \"Lorem Ipsum passages, and more recently with desktop publishing software\",\r\n        \"text\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"\r\n    },\r\n    \"categoryIds\": [1, 5]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost v1}}/v1/news",
+							"host": [
+								"{{localhost v1}}"
+							],
+							"path": [
+								"v1",
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": {\r\n        \"title\": \"Fronteiras 5\",\r\n        \"description\": \"Lorem Ipsum passages, and more recently with desktop publishing software\",\r\n        \"text\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"\r\n    },\r\n    \"categoryIds\": [1, 9]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost v1}}/v1/news/update/2",
+							"host": [
+								"{{localhost v1}}"
+							],
+							"path": [
+								"v1",
+								"news",
+								"update",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localhost v1}}/v1/news/delete/6",
+							"host": [
+								"{{localhost v1}}"
+							],
+							"path": [
+								"v1",
+								"news",
+								"delete",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost v1",
+			"value": "http://localhost:3008",
+			"type": "string"
+		}
+	]
+}

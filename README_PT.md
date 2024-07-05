@@ -240,6 +240,12 @@ npm run start
 }
 ```
 
+## Postman
+
+>[!NOTE]
+>
+>Se desejar visualizar no Postman, deixamos um arquivo na pasta Postman a qual você pode importar e fazer usar lá. __[Postman](Postman)__
+
 # Autor
 |Nome|Email|Função|Curso|
 | -------- | --------  |-------- | -------- |
